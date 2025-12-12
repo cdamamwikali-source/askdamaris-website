@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories - Askdamaris</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #8607db;
+            --action-orange: #ec730c;
+            --teal: #008080;
+            --gold: #ffea97;
+            --dark-bg: #1a1a1a;
+            --light-text: #ffffff;
+            --gray-text: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-purple), #6505a8);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-purple);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-purple), var(--teal));
+            color: var(--light-text);
+            padding: 120px 2rem 60px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .stats-section {
+            background: white;
+            padding: 60px 2rem;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+        }
+
+        .stories-section {
+            padding: 80px 2rem;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 3rem;
+        }
+
+        .stories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-purple), var(--teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gold);
+            margin: 0 auto;
+        }
+
+        .story-content h3 {
+            color: var(--primary-purple);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-role {
+            color: var(--action-orange);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .story-quote {
+            font-style: italic;
+            color: var(--gray-text);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .story-details {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-details h4 {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .story-details ul {
+            list-style: none;
+        }
+
+        .story-details li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+        }
+
+        .story-details li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: bold;
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--primary-purple);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-section {
+            background: linear-gradient(135deg, var(--primary-purple), #4a0680);
+            color: var(--light-text);
+            padding: 80px 2rem;
+        }
+
+        .video-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .video-placeholder {
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            padding: 100px 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .video-placeholder p {
+            font-size: 1.2rem;
+        }
+
+        .cta-section {
+            background: var(--teal);
+            color: var(--light-text);
+            padding: 60px 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: var(--action-orange);
+            color: var(--light-text);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(236, 115, 12, 0.4);
+        }
+
+        footer {
+            background: var(--dark-bg);
+            color: var(--light-text);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--light-text);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--action-orange);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--action-orange);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-text);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--primary-purple);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                transition: left 0.3s;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .story-card {
+                grid-template-columns: 1fr;
+            }
+
+            .story-image {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">A</div>
+                <span>Askdamaris</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="success.html">Success Stories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Success Stories</h1>
+        <p>Real transformations from real professionals who took the leap with Askdamaris</p>
+    </div>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Professionals Coached</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Career Advancement Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">40%</div>
+                <div class="stat-label">Average Salary Increase</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Countries Reached</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stories-section">
+        <h2 class="section-title">Featured Success Stories</h2>
+        <div class="stories-container">
+            <div class="story-card">
+                <div>
+                    <div class="story-image">01</div>
+                </div>
+                <div class="story-content">
+                    <h3>Career Transformation Journey</h3>
+                    <p class="story-role">Professional Development Client</p>
+                    <p class="story-quote">"Your guidance steered me toward a path of fulfillment, renewing my sense of competence both professionally and personally. I developed resilience in facing life's challenges and learned to confidently seize opportunities as they arise. I now operate with a positive mindset and a clarity that your support helped cultivate."</p>
+                    <div class="story-details">
+                        <h4>The Journey:</h4>
+                        <ul>
+                            <li>After a difficult year of freelancing that left me financially strained and mentally exhausted</li>
+                            <li>Learned resume and cover letter writing skills</li>
+                            <li>Mentally prepared with advice that results take time</li>
+                            <li>By early 2024, secured multiple freelance gigs</li>
+                            <li>Now enjoys work and approaches career on own terms</li>
+                        </ul>
+                    </div>
+                    <span class="achievement-badge">Resume Writing</span>
+                    <span class="achievement-badge">Career Clarity</span>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div>
+                    <div class="story-image">02</div>
+                </div>
+                <div class="story-content">
+                    <h3>Professional Confidence & Job Success</h3>
+                    <p class="story-role">Career Development Client</p>
+                    <p class="story-quote">"I have gained significant confidence, especially in my current workplace. You played a key role in helping me land my current job. Your valuable advice taught me how to advocate for myself professionally, negotiate for what I deserve, and present myself with confidence—without appearing desperate or compromising my ethics."</p>
+                    <div class="story-details">
+                        <h4>Skills Developed:</h4>
+                        <ul>
+                            <li>Communication excellence</li>
+                            <li>Problem-solving capabilities</li>
+                            <li>Negotiation techniques</li>
+                            <li>Professional self-advocacy</li>
+                            <li>Ethical workplace navigation</li>
+                        </ul>
+                    </div>
+                    <span class="achievement-badge">Job Secured</span>
+                    <span class="achievement-badge">Negotiation Skills</span>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div>
+                    <div class="story-image">03</div>
+                </div>
+                <div class="story-content">
+                    <h3>Leadership & Personal Growth</h3>
+                    <p class="story-role">Professional Development Client</p>
+                    <p class="story-quote">"Your unique feedback, constant coaching, and motivation provoked the deep thinking necessary to steer my personal development. Through your emphasis on consistency and by holding me accountable, I significantly improved my work performance. This created a positive habit that has stuck, benefiting my personal development as well."</p>
+                    <div class="story-details">
+                        <h4>Transformation Areas:</h4>
+                        <ul>
+                            <li>Leadership capabilities enhanced</li>
+                            <li>Communication skills strengthened</li>
+                            <li>Critical thinking developed</li>
+                            <li>Problem-solving improved</li>
+                            <li>Professionalism elevated</li>
+                        </ul>
+                    </div>
+                    <span class="achievement-badge">Performance Improvement</span>
+                    <span class="achievement-badge">Accountability</span>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div>
+                    <div class="story-image">04</div>
+                </div>
+                <div class="story-content">
+                    <h3>Corporate Excellence & Resilience</h3>
+                    <p class="story-role">Corporate Professional</p>
+                    <p class="story-quote">"Your unwavering support has helped me navigate challenges and encouraged me to take calculated risks in the corporate environment. By consistently pushing me to explore growth opportunities, you have fostered a culture of continuous learning. This approach has expanded my skill set, boosted my confidence and resilience, and shaped me into a more adaptable and resourceful professional."</p>
+                    <div class="story-details">
+                        <h4>Key Competencies Gained:</h4>
+                        <ul>
+                            <li>Problem-solving with creativity and resourcefulness</li>
+                            <li>Leadership under pressure with effective delegation</li>
+                            <li>Collaboration and conflict resolution</li>
+                            <li>Adaptability in dynamic environments</li>
+                            <li>Strategic decision-making capabilities</li>
+                        </ul>
+                    </div>
+                    <span class="achievement-badge">Leadership Skills</span>
+                    <span class="achievement-badge">Corporate Success</span>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div>
+                    <div class="story-image">05</div>
+                </div>
+                <div class="story-content">
+                    <h3>Entrepreneurship & Creative Freedom</h3>
+                    <p class="story-role">Social Media Business Owner</p>
+                    <p class="story-quote">"Your advice and moral support have truly held me up. I've been able to break free from self-doubt and finally take action. I started my social media management business but gave up after three months due to a lack of clients. Your support assured me that I could create content, put myself out there, and attract clients."</p>
+                    <div class="story-details">
+                        <h4>Business Journey:</h4>
+                        <ul>
+                            <li>Overcame self-doubt and entrepreneurial fear</li>
+                            <li>Learned time management and planning</li>
+                            <li>Developed assertiveness in business</li>
+                            <li>Tapped into creativity with confidence</li>
+                            <li>Now enjoys the content creation process</li>
+                        </ul>
+                    </div>
+                    <span class="achievement-badge">Business Owner</span>
+                    <span class="achievement-badge">Creative Confidence</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="video-section">
+        <div class="video-content">
+            <h2>Hear From Our Community</h2>
+            <div class="video-placeholder">
+                <p>📹 Video testimonials coming soon</p>
+                <p>Watch real clients share their transformation stories</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Your Success Story Starts Here</h2>
+        <p>Join hundreds of African professionals who have transformed their careers with Askdamaris</p>
+        <a href="https://askdamaris.selar.com/" target="_blank" rel="noopener" class="cta-button">Begin Your Transformation</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Askdamaris</h3>
+                <p>Bridging the Gap Between Talent and Opportunity</p>
+                <p style="margin-top: 1rem;">Based in Kenya, serving African professionals worldwide.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="about.html">About Damaris</a></li>
+                    <li><a href="success.html">Success Stories</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Facebook">f</a>
+                </div>
+                <p style="margin-top: 1rem;">Email: info@askdamaris.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Askdamaris. Founded by Damaris Kakundi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
